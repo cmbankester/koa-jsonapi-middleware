@@ -2,10 +2,10 @@
 export default function(opts={}) {
 
   return function *(next) {
-    this.set('Content-Type', 'application/vnd.api+json');
     if (!this.header.accept) {
       this.body   = {error: 'Header not found: "Accept: application/vnd.api+json"'};
       this.status = 400;
+      this.set('Content-Type', 'application/vnd.api+json');
       return;
     }
 
@@ -14,6 +14,7 @@ export default function(opts={}) {
     if (!this.header.accept || !/application\/vnd\.api\+json/.test(this.header.accept)) {
       this.body = {error: 'Header not found: "Accept: application/vnd.api+json"'};
       this.status = 400;
+      this.set('Content-Type', 'application/vnd.api+json');
       return;
     }
 
@@ -23,6 +24,7 @@ export default function(opts={}) {
     if (!/application\/vnd\.api\+json;?\s*($|,)/.test(this.header.accept)) {
       this.body = {error: '406 Not Acceptable'};
       this.status = 406;
+      this.set('Content-Type', 'application/vnd.api+json');
       return;
     }
 
@@ -32,6 +34,7 @@ export default function(opts={}) {
       if (!this.header['content-type'] || !/application\/vnd\.api\+json/.test(this.header['content-type'])) {
         this.body = {error: 'Header not found: "Content-Type: application/vnd.api+json"'};
         this.status = 400;
+        this.set('Content-Type', 'application/vnd.api+json');
         return;
       }
     }
@@ -42,6 +45,7 @@ export default function(opts={}) {
       throw new UnsupportedMediaTypeError();
       this.body = {error: '415 Unsupported Media Type'};
       this.status = 415;
+      this.set('Content-Type', 'application/vnd.api+json');
       return;
     }
 
