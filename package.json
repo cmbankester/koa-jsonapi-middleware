@@ -1,0 +1,27 @@
+{
+  "name": "koa-jsonapi-middleware",
+  "version": "0.1.0",
+  "description": "A Koa.js middleware for adding spec-compliant JSON-API content negotiation",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "npm run transpile",
+    "transpile": "babel --no-comments --blacklist regenerator,es6.forOf src/middleware.js --out-file index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbankester/koa-jsonapi-middleware.git"
+  },
+  "keywords": [
+    "json-api",
+    "koa"
+  ],
+  "author": "Christian Bankester <cbankester@immense.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cbankester/koa-jsonapi-middleware/issues"
+  },
+  "homepage": "https://github.com/cbankester/koa-jsonapi-middleware#readme",
+  "devDependencies": {
+    "babel": "5.x"
+  }
+}
