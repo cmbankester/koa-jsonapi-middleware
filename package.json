@@ -1,6 +1,6 @@
 {
   "name": "koa-jsonapi-middleware",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Koa.js middleware for adding spec-compliant JSON-API content negotiation",
   "main": "index.js",
   "scripts": {
